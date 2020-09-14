@@ -141,16 +141,6 @@ class BannersController extends BaseController {
         }
     }
 
-    /* Show Banners Details */
-
-    public function show($id) {
-        try {
-            $data = Banners::getBannersDetails($id);
-            return view('admin.banners.show', compact('data'));
-        } catch (\Exception $e) {
-            session()->flash('error', $e->getMessage());
-            return redirect()->route('banners.index');
-        }
-    }
+  
 
 }
