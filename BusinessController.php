@@ -104,18 +104,7 @@ class BusinessController extends BaseController {
         }
     }
 
-    public function edit($id) {
-        try {
-            $data = User::find($id);
-            if ($data->profile_pic && $data->profile_pic != '') {
-                $data->profile_pic = Helper::displayProfilePath() . $data->profile_pic;
-            }
-            return view('admin.business.edit', compact('data'));
-        } catch (\Exception $e) {
-            session()->flash('error', $e->getMessage());
-            return redirect()->route('business.index');
-        }
-    }
+    
 
     public function update(Request $request, $id) {
         try {
